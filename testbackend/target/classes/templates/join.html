@@ -1,0 +1,78 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Le Tuan Manh Test Back-end Java</title>
+ <style>
+         th, td {
+         padding: 5px;
+         }
+         td span  {
+         font-size:90%;
+         font-style: italic;
+         color: red;
+         }
+         .error {
+         color: red;
+         font-style: italic;
+         }
+      </style>
+</head>
+<body>
+  <a th:href="@{/users-list}">List Users</a><br />
+  <h1>Edit User:</h1>
+  <form th:action="@{/dojoin}" method="POST" th:object="${userForm}">
+     <table>
+            <tr>
+               <td>Id</td>
+               <td><input type="text" th:field="*{id}" /></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Password</td>
+               <td><input type="password" th:field="*{password}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Name</td>
+               <td><input type="text" th:field="*{name}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Email</td>
+               <td><input type="text" th:field="*{email}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Phone</td>
+               <td><input type="text" th:field="*{phone}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Address</td>
+               <td><input type="text" th:field="*{address}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('address')}" th:errors="*{address}">..</span>
+               </td>
+            </tr>
+            
+            <tr>
+               <td>&nbsp;</td>
+               <td>
+                  <input type="submit" value="Join" />
+                  <a th:href="@{/}">Cancel</a>
+               </td>
+               <td>&nbsp;</td>
+            </tr>
+         </table>
+  </form>
+</body>
+</html>

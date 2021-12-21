@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Le Tuan Manh Test Back-end Java</title>
+<style>
+table, th, td {
+	border: 1px solid black;
+}
+</style>
+</head>
+<body>
+	<h2>Admin Page</h2>
+	<h3>
+		Hello : <span th:utext="${#request.userPrincipal.name}"></span>
+	</h3>
+	<table>
+		<tr>
+			<th>Id</th>
+			<th>Name</th>
+			<th>Address</th>
+			<th>Details</th>
+			<th>Update</th>
+			
+		</tr>
+		<th:block th:each="user : ${listUsers}">
+			<tr>
+				<td><p th:text="${user.id}"></p></td>
+				<td><p th:text="${user.name}"></p></td>
+				<td><p th:text="${user.address}"></p></td>
+				<td><a th:href="@{/admin/user-details/} + ${user.id}">Details</a></td>
+				<td><a th:href="@{/admin/user-update/} + ${user.id}">Update</a></td>
+				
+			</tr>
+		</th:block>
+	</table>
+
+
+	<a th:href="@{/user}">User Page</a>
+	<br />
+	<br />
+	<form th:action="@{/j_spring_security_logout}" method="post">
+		<input type="hidden" th:name="${_csrf.parameterName}"
+			th:value="${_csrf.token}" /> <input type="submit" value="Logout" />
+	</form>
+</body>
+</html>

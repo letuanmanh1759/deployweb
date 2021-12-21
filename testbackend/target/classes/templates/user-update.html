@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Le Tuan Manh Test Back-end Java</title>
+</head>
+<body>
+  <a th:href="@{/users-list}">List Users</a><br />
+  <h1>Edit User:</h1>
+  <form th:action="@{/admin/updateUser}" method="POST" th:object="${user}">
+      Id: <input th:field="*{id}" readonly="true" /> <br/> <br/>
+      Password: <input th:field="*{password}"/> <br/> <br/>
+      Name: <input th:field="*{name}"/> <br/> <br/>
+      Email: <input th:field="*{email}"/> <br/> <br/>
+      Phone: <input th:field="*{phone}"/> <br/> <br/>
+      Address: <input th:field="*{address}"/> <br/> <br/>
+ 
+      <input type="hidden" th:field="*{enabled}" />
+    <input type="submit" value="Update" />
+  </form>
+</body>
+</html>

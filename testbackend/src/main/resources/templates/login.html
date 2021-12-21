@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Le Tuan Manh Test Back-end Java</title>
+
+</head>
+<body>
+	<h2>Test Back-end Java</h2>
+	<h3>
+		<p th:text="${message}"></p>
+	</h3>
+	<form name='login-form' th:action="@{/j_spring_security_login}"
+		method='POST'>
+		<table>
+			<tr>
+				<td>Id:</td>
+				<td><input type='text' name='username' value=''></td>
+			</tr>
+			<tr>
+				<td>Password:</td>
+				<td><input type='password' name='password' /></td>
+			</tr>
+			<tr>
+				<td><input name="submit" type="submit" value="Login" /></td>
+				<td><a th:href="@{/join/}">Join</a></td>
+			</tr>
+		</table>
+		<input type="hidden" name="${_csrf.parameterName}"
+			value="${_csrf.token}" />
+	</form>
+	<p style="padding-top: 10px;">Admin: id:Admin99 - pass:Admin@99</p>
+	<br>
+	<p>User: id:User01 - pass:User@01</p>
+
+</body>
+</html>
